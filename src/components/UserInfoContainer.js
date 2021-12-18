@@ -5,7 +5,7 @@ import UserInfo from "./UserInfo";
 
 const UserInfoContainer = () => {
   return (
-    <div>
+    <div className="user-info-container">
       <UserInfo />
       <Tabs />
     </div>

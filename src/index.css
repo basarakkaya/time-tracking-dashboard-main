@@ -1,13 +1,292 @@
+:root {
+  --colorBlue: hsl(246, 80%, 60%);
+  --colorLightOrange: hsl(15, 100%, 70%);
+  --colorSoftBlue: hsl(195, 74%, 62%);
+  --colorLightRed: hsl(348, 100%, 68%);
+  --colorLimeGreen: hsl(145, 58%, 55%);
+  --colorViolet: hsl(264, 64%, 52%);
+  --colorSoftYellow: hsl(43, 84%, 65%);
+  --colorVeryDarkBlue: hsl(226, 43%, 10%);
+  --colorDarkBlue: hsl(235, 46%, 20%);
+  --colorDesaturatedBlue: hsl(235, 45%, 61%);
+  --colorPaleBlue: hsl(236, 100%, 87%);
+  --fontWeightLight: 300;
+  --fontWeightRegular: 400;
+  --fontWeightBold: 500;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#root {
+  background-color: var(--colorVeryDarkBlue);
+}
+
+@media only screen and (min-width: 768px) {
+  #root {
+    height: 100vh;
+    display: flex;
+  }
+}
+
+.App {
+  padding: 84px 24px;
+}
+
+@media only screen and (min-width: 768px) {
+  .App {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    max-width: 1150px;
+    margin: auto;
+    gap: 24px;
+  }
+}
+
+/* UserInfoContainer */
+
+.user-info-container {
+  background-color: var(--colorDarkBlue);
+  border-radius: 16px;
+}
+
+@media only screen and (min-width: 768px) {
+  .user-info-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.user-info {
+  background-color: var(--colorBlue);
+  border-radius: inherit;
+  display: flex;
+  padding: 32px;
+}
+
+@media only screen and (min-width: 768px) {
+  .user-info {
+    flex-direction: column;
+  }
+}
+
+.user-name-container {
+  flex-grow: 1;
+  padding-left: 16px;
+}
+
+.user-name-container p {
+  margin: 8px 0px;
+}
+
+@media only screen and (min-width: 768px) {
+  .user-name-container {
+    padding: 24px 0px;
+    padding-bottom: 44px;
+  }
+}
+
+.avatar {
+  height: 64px;
+  width: 64px;
+  border-radius: 36px;
+  border: 3px solid white;
+  align-self: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .avatar {
+    align-self: flex-start;
+    height: 72px;
+    width: 72px;
+    border-radius: 40px;
+  }
+}
+
+.report-for {
+  color: var(--colorPaleBlue);
+  font-weight: var(--fontWeightRegular);
+  font-size: 15px;
+}
+
+.user-name {
+  color: white;
+  font-size: 24px;
+  font-weight: var(--fontWeightLight);
+}
+
+@media only screen and (min-width: 768px) {
+  .user-name {
+    font-size: 36px;
+  }
+}
+
+.tabs-container {
+  background-color: var(--colorDarkBlue);
+  border-radius: inherit;
+  display: flex;
+  padding: 28px 32px;
+  justify-content: space-between;
+}
+
+@media only screen and (min-width: 768px) {
+  .tabs-container {
+    flex-grow: 1;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    padding: 16px 32px;
+  }
+}
+
+.tab {
+  color: var(--colorDesaturatedBlue);
+  background: transparent;
+  font-size: 18px;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.tab:hover,
+.tab.active {
+  color: white;
+}
+
+@media only screen and (min-width: 768px) {
+  .tab {
+    align-self: center;
+  }
+}
+
+/* TrackContainer */
+
+.track-container {
+  padding: 24px 0px;
+  display: grid;
+  gap: 28px;
+}
+
+@media only screen and (min-width: 768px) {
+  .track-container {
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 0;
+  }
+}
+
+.track {
+  border-radius: 16px;
+  padding-top: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.track-icon {
+  position: absolute;
+  top: -10px;
+  right: 16px;
+}
+
+.track-inner {
+  background-color: var(--colorDarkBlue);
+  border-radius: inherit;
+  position: relative;
+  padding: 28px;
+  display: grid;
+  gap: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  height: 100%;
+}
+
+.track-inner:hover {
+  background-color: var(--colorDesaturatedBlue);
+}
+
+.track-title-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.track-title {
+  color: white;
+  font-weight: var(--fontWeightBold);
+  margin: 0;
+}
+
+.track-ellipsis {
+  height: 5px;
+  align-self: center;
+}
+
+.track-ellipsis:hover {
+  color: white;
+}
+
+.track-value-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media only screen and (min-width: 768px) {
+  .track-value-container {
+    flex-direction: column;
+    margin-top: 16px;
+  }
+}
+
+.track-value {
+  color: white;
+  font-size: 36px;
+  margin: 0;
+  font-weight: var(--fontWeightLight);
+}
+
+.track-previous-value {
+  color: var(--colorPaleBlue);
+  margin: 0;
+  align-self: center;
+  font-size: 14px;
+}
+
+@media only screen and (min-width: 768px) {
+  .track-value {
+    font-size: 48px;
+  }
+  .track-previous-value {
+    align-self: flex-start;
+    margin-top: 8px;
+  }
+}
+
+.track.work {
+  background-color: var(--colorLightOrange);
+}
+
+.track.play {
+  background-color: var(--colorSoftBlue);
+}
+
+.track.study {
+  background-color: var(--colorLightRed);
+}
+
+.track.exercise {
+  background-color: var(--colorLimeGreen);
+}
+
+.track.social {
+  background-color: var(--colorViolet);
+}
+
+.track.self-care {
+  background-color: var(--colorSoftYellow);
 }

@@ -4,10 +4,12 @@ import avatar from "../assets/images/image-jeremy.png";
 
 const UserInfo = () => {
   return (
-    <div>
-      <img src={avatar} alt="user avatar" />
-      <p>Report for</p>
-      <p>Jeremy Robson</p>
+    <div className="user-info">
+      <img src={avatar} alt="user avatar" className="avatar" />
+      <div className="user-name-container">
+        <p className="report-for">Report for</p>
+        <p className="user-name">Jeremy Robson</p>
+      </div>
     </div>
   );
 };

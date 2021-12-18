@@ -25,14 +25,14 @@ const Tabs = () => {
   };
 
   return (
-    <div>
+    <div className="tabs-container">
       {tabs.map((tab) => (
-        <button
-          className={timeframe === tab.value ? "active" : undefined}
+        <div
+          className={timeframe === tab.value ? "tab active" : "tab"}
           onClick={onTabChange(tab.value)}
         >
           {tab.label}
-        </button>
+        </div>
       ))}
     </div>
   );

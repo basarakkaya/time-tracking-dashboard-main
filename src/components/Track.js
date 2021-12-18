@@ -1,5 +1,7 @@
 import React from "react";
 
+import ellipsis from "../assets/images/icon-ellipsis.svg";
+
 const labelPrevious = (timeframe) => {
   switch (timeframe) {
     case "daily":
@@ -14,18 +16,27 @@ const labelPrevious = (timeframe) => {
 };
 
 const Track = ({ data, timeframe }) => {
-  const icon = require(`../assets/images/icon-${data.title
-    .toLowerCase()
-    .replace(" ", "-")}.svg`);
+  const type = data.title.toLowerCase().replace(" ", "-");
+  const icon = require(`../assets/images/icon-${type}.svg`);
 
   return (
-    <div>
-      <img src={icon} alt={`${data.title} icon`} />
-      <p>{data.title}</p>
-      <p>{data.timeframes[timeframe]?.current}hrs</p>
-      <p>
-        {labelPrevious(timeframe)} - {data.timeframes[timeframe]?.previous}hrs
-      </p>
+    <div className={`track ${type}`}>
+      <img className="track-icon" src={icon} alt={`${data.title} icon`} />
+      <div className="track-inner">
+        <div className="track-title-container">
+          <p className="track-title">{data.title}</p>
+          <img className="track-ellipsis" src={ellipsis} alt="ellipsis icon" />
+        </div>
+        <div className="track-value-container">
+          <p className="track-value">
+            {data.timeframes[timeframe]?.current}hrs
+          </p>
+          <p className="track-previous-value">
+            {labelPrevious(timeframe)} - {data.timeframes[timeframe]?.previous}
+            hrs
+          </p>
+        </div>
+      </div>
     </div>
   );
 };

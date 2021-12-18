@@ -10,7 +10,7 @@ const TrackContainer = () => {
   const [timeframe] = useTimeframe();
 
   return (
-    <div>
+    <div className="track-container">
       {data.map((trackInfo) => (
         <Track data={trackInfo} timeframe={timeframe} />
       ))}
